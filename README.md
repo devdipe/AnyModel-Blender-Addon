@@ -5,14 +5,14 @@ GitHub repository for the **AnyModel Avatar Tools** Blender add-on. This reposit
 ## Current add-on
 
 - Add-on: **AnyModel Avatar Tools 2.5.2**
-- Blender: **4.2 or newer**
+- Blender build target: **4.5**; declared minimum: **4.2.0**
 - Minecraft content format: `.mcavatar` for avatars and `.avanim` for animation actions
-- Installable package: [`dist/AnyModel_Blender_Addon-2.5.2.zip`](dist/AnyModel_Blender_Addon-2.5.2.zip)
+- Installable release package: get `AnyModel_Blender_Addon-2.5.2-Blender-4.5.zip` from [GitHub Releases](https://github.com/devdipe/AnyModel-Blender-Addon/releases/latest).
 - Full Russian guide: [`docs/GUIDE_RU.md`](docs/GUIDE_RU.md)
 
 ## Install in Blender
 
-1. Download the ZIP from `dist/` (or download the latest `AnyModel-Blender-Addon-dev` artifact from GitHub Actions).
+1. Download the Blender 4.5 ZIP from [GitHub Releases](https://github.com/devdipe/AnyModel-Blender-Addon/releases/latest). For an in-progress build, use the latest `AnyModel-Blender-Addon-dev` artifact from GitHub Actions.
 2. In Blender, open **Edit → Preferences → Add-ons → Install from Disk…**.
 3. Select the ZIP. Enable **AnyModel Avatar Tools**.
 4. In a 3D View, press **N** and open the **AnyModel** sidebar tab.
@@ -21,14 +21,12 @@ Do not unpack the installable ZIP before selecting it in Blender.
 
 ## Development builds
 
-Every push to `main`, and every manual run from the **Actions** tab, packages `addon/avatar_action_bridge/` as an installable ZIP and uploads it as a GitHub Actions artifact named `AnyModel-Blender-Addon-dev`.
-
-To update the included stable ZIP after changing the source, package the `avatar_action_bridge` folder itself so it is the ZIP's top-level folder. Keep the same layout as the ZIP in `dist/`.
+Every push to `main` and every manual run from the **Actions** tab packages `addon/avatar_action_bridge/` as an installable Blender 4.5 ZIP and uploads it as a GitHub Actions artifact. Pushing a version tag such as `v2.5.3` also creates a GitHub Release with a versioned, installable ZIP attached.
 
 ## Repository contents
 
 - `addon/avatar_action_bridge/` — add-on Python source and bundled AVANIM templates/notices.
-- `dist/` — installable Blender add-on ZIP.
+- `dist/` — installable Blender add-on ZIP used for releases.
 - `docs/` — Russian setup guide, format notes and retained upstream changelog.
 - `.github/workflows/dev-build.yml` — automatic development artifact packaging.
 

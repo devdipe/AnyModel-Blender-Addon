@@ -3,10 +3,11 @@ name: Blender add-on dev build
 on:
   push:
     branches: [main]
+    tags: ["v*"]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   package:
@@ -15,13 +16,29 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
       - name: Create installable add-on ZIP
+        id: package
         run: |
           mkdir -p dist
           cd addon
-          zip -qr ../dist/AnyModel_Blender_Addon-dev.zip avatar_action_bridge
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+            ARCHIVE="AnyModel_Blender_Addon-${VERSION}-Blender-4.5.zip"
+            echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          else
+            ARCHIVE="AnyModel_Blender_Addon-dev-Blender-4.5.zip"
+          fi
+          zip -qr "../dist/${ARCHIVE}" avatar_action_bridge
       - name: Upload development build
+        if: github.ref_type != 'tag'
         uses: actions/upload-artifact@v4
         with:
-          name: AnyModel-Blender-Addon-dev
-          path: dist/AnyModel_Blender_Addon-dev.zip
+          name: AnyModel-Blender-Addon-dev-Blender-4.5
+          path: dist/AnyModel_Blender_Addon-dev-Blender-4.5.zip
           if-no-files-found: error
+      - name: Attach installable ZIP to GitHub Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: AnyModel Avatar Tools ${{ github.ref_name }} — Blender 4.5
+          body_path: RELEASE_NOTES.md
+          files: dist/AnyModel_Blender_Addon-${{ steps.package.outputs.version }}-Blender-4.5.zip
