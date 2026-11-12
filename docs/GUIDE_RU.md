@@ -1,4 +1,4 @@
-# AnyModel Avatar Tools 2.5.2
+# AnyModel Avatar Tools 1.0.0
 
 
 ## Глаза и рот — встроенные инструменты AnyModel

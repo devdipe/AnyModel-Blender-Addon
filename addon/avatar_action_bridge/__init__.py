@@ -1,5 +1,5 @@
 bl_info = {
-    'name': 'AnyModel Avatar Tools', 'author': 'Codex', 'version': (2, 5, 2),
+    'name': 'AnyModel Avatar Tools', 'author': 'Codex', 'version': (1, 0, 0),
     'blender': (4, 2, 0), 'location': 'View3D > Sidebar > AnyModel / File > Export',
     'description': 'Build Minecraft avatars and export editable animations, visibility and sound',
     'category': 'Import-Export',

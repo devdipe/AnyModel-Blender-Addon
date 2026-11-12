@@ -4,10 +4,10 @@ GitHub repository for the **AnyModel Avatar Tools** Blender add-on. This reposit
 
 ## Current add-on
 
-- Add-on: **AnyModel Avatar Tools 2.5.2**
+- Add-on: **AnyModel Avatar Tools 1.0.0**
 - Blender build target: **4.5**; declared minimum: **4.2.0**
 - Minecraft content format: `.mcavatar` for avatars and `.avanim` for animation actions
-- Installable release package: get `AnyModel_Blender_Addon-2.5.2-Blender-4.5.zip` from [GitHub Releases](https://github.com/devdipe/AnyModel-Blender-Addon/releases/latest).
+- Installable release package: get `AnyModel_Blender_Addon-1.0.0-Blender-4.5.zip` from [GitHub Releases](https://github.com/devdipe/AnyModel-Blender-Addon/releases/latest).
 - Full Russian guide: [`docs/GUIDE_RU.md`](docs/GUIDE_RU.md)
 
 ## Install in Blender
@@ -21,7 +21,7 @@ Do not unpack the installable ZIP before selecting it in Blender.
 
 ## Development builds
 
-Every push to `main` and every manual run from the **Actions** tab packages `addon/avatar_action_bridge/` as an installable Blender 4.5 ZIP and uploads it as a GitHub Actions artifact. Pushing a version tag such as `v2.5.3` also creates a GitHub Release with a versioned, installable ZIP attached.
+Every push to `main` and every manual run from the **Actions** tab packages `addon/avatar_action_bridge/` as an installable Blender 4.5 ZIP and uploads it as a GitHub Actions artifact. Pushing a version tag such as `v1.0.1` also creates a GitHub Release with a versioned, installable ZIP attached.
 
 ## Repository contents
 
